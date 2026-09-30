@@ -1,5 +1,13 @@
 {
-  "dependencies": {
-    "react-responsive": "^10.0.1"
-  }
+   "scripts": {
+      "dev": "concurrently \"npm --prefix ./dgkala/dgkala_frontend run dev\"  \"npm --prefix ./dgkala/dgkala_backend run dev\"",
+      "admin": "concurrently \"npm --prefix ./cms/cms_frontend run dev\"  \"npm --prefix ./cms/cms_backend run dev\""
+
+   },
+   "dependencies": {
+      "react-responsive": "^10.0.1"
+   },
+   "devDependencies": {
+      "concurrently": "^9.2.4"
+   }
 }
