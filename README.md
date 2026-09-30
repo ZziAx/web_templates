@@ -2,7 +2,7 @@
 
 ![Preview](./preview.png)
 
-A modern full-stack website template with a JavaScript frontend and Node.js backend.
+A modern full-stack website template with a React frontend and Node.js backend.
 
 ## Features
 
