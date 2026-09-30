@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Logs" ALTER COLUMN "value" DROP NOT NULL;

@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+
+@theme{
+    --color-white:#fff;
+    --radius-amazingOfferV2_xl:5px;
+    --aspect-amazingOfferV2-box: 0.7
+
+}
+
+.amazingOfferV2-container{
+    @apply flex cursor-pointer  py-[10px] h-[400px] w-full 
+}
+
+
+.amazingOfferV2-item-box{
+    @apply flex h-full  flex-col  p-[10px] aspect-amazingOfferV2-box bg-white
+}
+
+.amazingOfferV2-first-item{
+    @apply rounded-r-amazingOfferV2_xl
+}
+
+.amazingOfferV2-last-item{
+    @apply rounded-l-amazingOfferV2_xl
+}
+
+.amazingOfferV2-more-box{
+    @apply flex aspect-amazingOfferV2-box text-white justify-center items-center
+}

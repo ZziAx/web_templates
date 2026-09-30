@@ -1,0 +1,18 @@
+// save ts to dist folder
+// npx tsc
+
+// prisma migration
+// npx prisma migrate dev
+// npx prisma migrate dev --create-only
+
+// regeneration ts prisma schema
+// npx prisma generate
+
+// exec sql
+// npx prisma db execute --file ./sql_helper/.fix.sql --schema=prisma/schema.prisma
+// npx prisma db execute --stdin --schema=prisma/schema.prisma
+
+// psql "postgresql://arshia:arshia1234@127.0.0.1:5432/postgres"
+//       postgresql://arshia:arshia1234@127.0.0.1:5432/postgres
+// postgres://postgres:postgres@localhost:51214/template1?sslmode=disable
+// npx prisma db execute --file ./prisma/migrations/20260219134155/migration.sql --schema=prisma/schema.prisma

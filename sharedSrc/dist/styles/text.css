@@ -1,0 +1,55 @@
+@theme {
+    --color-error: #b2001a
+}
+
+.text-body-1 {
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 2.17;
+    font-family: "iranyekan";
+
+}
+
+.text-body-1-bold {
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 2.17;
+    font-family: "iranyekan";
+
+}
+
+.text-body-2 {
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 2.17;
+    font-family: "iranyekan";
+
+}
+
+.text-body-2-bold {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 2.17;
+    font-family: "iranyekan";
+
+}
+
+.text-body-3 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 2.17;
+    font-family: "iranyekan";
+
+}
+
+.text-body-3-bold {
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 2.17;
+    font-family: "iranyekan";
+
+}
+
+.text-hint-text-error {
+    color: var(--color-error);
+}

@@ -1,0 +1,174 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// models
+
+model Admin {
+  id           Int       @id @default(autoincrement())
+  name         String
+  phoneNumber  String?   @unique
+  username     String    @unique
+  password     String
+  image        String?
+  registeredAt DateTime  @default(now())
+  role         Role      @default(USER)
+  products     Product[]
+}
+
+model User {
+  id           Int        @id @default(autoincrement())
+  name         String
+  phoneNumber  String     @unique
+  image        String?
+  registeredAt DateTime   @default(now())
+  // role         Role       @default(USER)
+  visible      Boolean    @default(true) // true = visible, false = hidden
+  cartItems    CartItem[]
+}
+
+model Tag {
+  id        Int      @id @default(autoincrement())
+  name      String
+  logs      Logs[]
+  product   Product? @relation(fields: [productId], references: [id])
+  productId Int?
+}
+
+model Product {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String
+  uri         String
+  images      Media[]
+  stock       Int           @default(1)
+  price       Float
+  cartItems   CartItem[]
+  status      ProductStatus @default(DRAFT)
+  logs        Logs[]
+  category    Category?     @relation(fields: [categoryId], references: [id])
+  categoryId  Int?          @default(1)
+
+  tags      Tag[]
+  creator   Admin?   @relation(fields: [creatorId], references: [id])
+  creatorId Int?
+  createdAt DateTime @default(now())
+}
+
+model Media {
+  id        Int       @id @default(autoincrement())
+  path      String
+  name      String
+  size      Int?
+  type      MediaType @default(IMAGE)
+  product   Product?  @relation(fields: [productId], references: [id])
+  productId Int?
+}
+
+model CartItem {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+  quantity  Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Orders?  @relation(fields: [ordersId], references: [id])
+  ordersId  Int?
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String
+  uri         String
+  products    Product[]
+}
+
+model PageElement {
+  id    Int     @id @default(autoincrement())
+  name  String
+  image String?
+  type  String  @unique @default("banner-slider")
+  args  Json
+
+  // pageData      PageData?    @relation(fields: [pageDataId], references: [id])
+  // pageDataId    Int?
+  pageDatas PageData[]
+}
+
+model PageData {
+  id            Int          @id @default(autoincrement())
+  name          String
+  content       Json
+  element       PageElement  @relation(fields: [pageElementId], references: [id])
+  pageBuilder   PageBuilder? @relation(fields: [pageBuilderId], references: [id])
+  pageBuilderId Int?
+  pageElementId Int
+}
+
+model PageBuilder {
+  id    Int        @id @default(autoincrement())
+  name  String     @unique
+  title String
+  uri   String     @unique
+  data  PageData[]
+}
+
+model Orders {
+  id        Int        @id @default(autoincrement())
+  items     CartItem[]
+  state     OrderState @default(WAITING)
+  createdAt DateTime   @default(now())
+}
+
+model Logs {
+  id        Int      @id @default(autoincrement())
+  name      String
+  value     String?
+  createdAt DateTime @default(now())
+  product   Product? @relation(fields: [productId], references: [id])
+  productId Int?
+  tag       Tag?     @relation(fields: [tagId], references: [id])
+  tagId     Int?
+}
+
+// enums
+enum Role {
+  USER
+  ADMIN
+}
+
+// CREATE TYPE ProductStatus AS ENUM ('ban', 'draft', 'pending', 'active');
+enum ProductStatus {
+  ACTIVE
+  DRAFT
+  PENDING
+  BAN
+}
+
+// ENUM ('canceled', 'proccessed', 'waiting', 'delivered')
+enum OrderState {
+  CANCELED
+  PROCCESSED
+  WAITING
+  DELIVERED
+}
+
+// ENUM ('VIDEO', 'IMAGE')
+enum MediaType {
+  VIDEO
+  IMAGE
+}
