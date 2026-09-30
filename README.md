@@ -1,16 +1,17 @@
-# Template Name
+# Full-Stack Website Template
 
-![Template Preview](./preview.png)
+![Preview](./preview.png)
 
-A modern and responsive website template built with JavaScript and Node.js.
+A modern full-stack website template with a JavaScript frontend and Node.js backend.
 
 ## Features
 
+- Frontend + backend
+- Node.js / Express backend
+- JavaScript frontend
+- API integration
 - Responsive design
-- Clean and modern UI
-- JavaScript / Node.js
 - Easy to customize
-- Ready for development
 
 ## Run
 
