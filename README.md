@@ -1,6 +1,8 @@
 # Full-Stack Website Template
 
-![Preview](./preview.png)
+![Preview](./assets/cover1.png)
+![Preview](./assets/cover2.png)
+
 
 A modern full-stack website template with a React frontend and Node.js backend.
 
