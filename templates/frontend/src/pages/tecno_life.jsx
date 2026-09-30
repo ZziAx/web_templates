@@ -10,7 +10,7 @@ import sendLog from "../logger";
 import { useResponsive } from "@shared/responsiveProvider";
 import { SingleRowSection } from "../components/singleRowSection/v2/singleRowSectionV2";
 
-export function Home2() {
+export function Tecnolife() {
 
   const {isTablet,isMobileLg,isMobileMd,isMobileSm} = useResponsive();
 

@@ -1,7 +1,7 @@
 {
    "scripts": {
-      "dev": "concurrently \"npm --prefix ./dgkala/dgkala_frontend run dev\"  \"npm --prefix ./dgkala/dgkala_backend run dev\"",
-      "admin": "concurrently \"npm --prefix ./cms/cms_frontend run dev\"  \"npm --prefix ./cms/cms_backend run dev\""
+      "dev": "concurrently \"npm --prefix ./templates/frontend run dev\"  \"npm --prefix ./templates/backend run dev\"",
+      "admin": "concurrently \"npm --prefix ./cms/frontend run dev\"  \"npm --prefix ./cms/backend run dev\""
 
    },
    "dependencies": {

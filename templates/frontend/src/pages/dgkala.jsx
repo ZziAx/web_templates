@@ -7,7 +7,7 @@ import { BannerGrid } from "../components/bannerGrid/bannerGrid";
 import sendLog from "../logger";
 import { useResponsive } from "@shared/responsiveProvider";
 
-export function Home() {
+export function Dgkala() {
 
   const {isTablet,isMobileLg,isMobileMd,isMobileSm} = useResponsive();
 
