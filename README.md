@@ -8,7 +8,7 @@ A modern full-stack website template with a React frontend and Node.js backend.
 
 - Frontend + backend
 - Node.js / Express backend
-- JavaScript frontend
+- React frontend
 - API integration
 - Responsive design
 - Easy to customize
@@ -18,3 +18,4 @@ A modern full-stack website template with a React frontend and Node.js backend.
 ```bash
 npm install
 npm run dev
+npm run admin
