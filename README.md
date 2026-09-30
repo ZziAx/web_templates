@@ -18,3 +18,4 @@ A modern full-stack website template with a React frontend and Node.js backend.
 ```bash
 npm install
 npm run dev
+npm run admin
